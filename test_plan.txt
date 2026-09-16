@@ -1,0 +1,17 @@
+Day 4 HTTP Security Checker - Test Plan
+
+Test 1: Valid local target
+Target: http://127.0.0.1:8000
+Expected: HTTP status 200 and security-header results
+
+Test 2: Unavailable local port
+Target: http://127.0.0.1:9999
+Expected: Request failure is handled without crashing
+
+Test 3: Missing target argument
+Command: python guided_http_check.py
+Expected: CLI reports that --target is required
+
+Test 4: Multiple targets
+Command: python guided_http_check.py --target http://127.0.0.1:8000 --target http://127.0.0.1:8000
+Expected: Both targets are processed

@@ -1,0 +1,83 @@
+DAY 4 — HTTP SECURITY CHECKER
+SAMPLE LAB REPORT
+===============================
+
+1. Scope
+--------
+Target:
+http://127.0.0.1:8000
+
+Environment:
+Local authorized lab environment.
+
+2. Objective
+------------
+Test a Python CLI that checks an HTTP target,
+reports the HTTP status code, and audits selected
+security headers.
+
+3. Result
+---------
+HTTP Status Code:
+200
+
+Security Headers:
+
+Strict-Transport-Security:
+Missing
+
+Content-Security-Policy:
+Missing
+
+X-Content-Type-Options:
+Missing
+
+X-Frame-Options:
+Missing
+
+Referrer-Policy:
+Missing
+
+4. Evidence
+-----------
+The CLI produced JSON output containing the target,
+HTTP status code, and security-header results.
+
+CSV evidence was also generated:
+http_audit.csv
+
+5. Validation Tests
+-------------------
+Test 1 — Valid target:
+PASSED
+
+Test 2 — Unavailable local port:
+PASSED
+
+Test 3 — Missing --target:
+PASSED
+
+Test 4 — Multiple targets:
+PASSED
+
+6. Interpretation
+-----------------
+The tool successfully identified the HTTP status and
+reported the presence or absence of selected headers.
+
+A missing header alone is not treated as proof of a
+vulnerability. Manual validation is required.
+
+7. Limitations
+--------------
+The test was performed only against the authorized
+local lab target.
+
+The tool does not automatically determine whether a
+missing header represents an exploitable vulnerability.
+
+8. Conclusion
+-------------
+The Python HTTP security-checking CLI successfully
+performed the intended lab checks and generated
+structured JSON and CSV results.
